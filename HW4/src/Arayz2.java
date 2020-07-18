@@ -8,7 +8,7 @@
 
         System.out.println("Самое короткое число массива: " + array[0] + " ,его длина равна "
                 + countDigits(array[0]));
-        System.out.println("Самое короткое число массива: " + array[array.length - 1] + " ,его длина равна "
+        System.out.println("Самое длинное число массива: " + array[array.length - 1] + " ,его длина равна "
                 + countDigits(array[array.length - 1]));
     }
 
