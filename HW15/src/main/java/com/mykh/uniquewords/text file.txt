@@ -1,0 +1,1 @@
+English text with English words.A lot of words.Find the words into the file.Words should be only on English.
