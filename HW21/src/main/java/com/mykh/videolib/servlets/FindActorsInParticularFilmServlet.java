@@ -24,7 +24,7 @@ public class FindActorsInParticularFilmServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String filmName = request.getParameter("filmName");
         request.setAttribute("actors", dao.findActorsInParticularFilm(filmName));
-        getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/jsp/findActorsInParticularFilm.jsp").forward(request, response);
 
         PrintWriter writer = response.getWriter();
         String result = "<html> " + " <h1> ";

@@ -10,23 +10,6 @@
     <title>header</title>
 </head>
 <body>
-<div align="left">
-    <% java.util.Date date = new java.util.Date();
-    String currentDate = "Current date: " + date;%>
-    <%=currentDate%>
-</div>
-    <form method="post" action="findActorsInParticularFilmServlet">
-        <h2>Enter the name of the film:</h2>
- <input type="text" name="filmName">
-        <input type="submit" name="Run">
-        </form>
-<ul>
-    <c:forEach var="actor" items="${actors}">
-        <li>Actor: ${actor.name}</li>
-        <li>Actor's birthday: ${actor.date}</li>
-        <br>
-</c:forEach>
-</ul>
-
+<c:import url="jsp/findActorsInParticularFilm.jsp"></c:import>
 </body>
 </html>
