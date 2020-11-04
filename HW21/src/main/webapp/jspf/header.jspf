@@ -1,0 +1,48 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Hillel</title>
+</head>
+<body>
+<div class="header">
+    <div class="inner_header">
+        <div class="logo_container">
+            <h1><span>HILLEL</span></h1>
+        </div>
+        <ul class="navigation">
+            <a href="findActorsInParticularFilmServlet">
+                <li>
+                    <form method="post" action="findActorsInParticularFilmServlet">
+                        <button class="firstButton">Find actors<br> in particular film</button>
+                    </form>
+                </li>
+            </a>
+            <a href="findActorsByManyFilmsServlet">
+                <li>
+                    <form method="post" action="findActorsByManyFilmsServlet">
+                        <button class="secondButton">Find actors<br>by many films</button>
+                    </form>
+                </li>
+            </a>
+            <a href="findActorsLikeProducersServlet">
+                <li>
+                    <button class="thirdButton">Find actors <br> like producers</button>
+                </li>
+            </a>
+            <a href="findFilmsByCurrentPreviousYearServlet">
+                <li>
+                    <button class="fourthButton">Find films by <br> current and previous year</button>
+                </li>
+            </a>
+            <a href="removeFilmsByYearServlet">
+                <li>
+                    <form method="post" action="removeFilmsByYearServlet">
+                        <button class="fifthButton">Remove films <br> by year</button>
+                    </form>
+                </li>
+            </a>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
