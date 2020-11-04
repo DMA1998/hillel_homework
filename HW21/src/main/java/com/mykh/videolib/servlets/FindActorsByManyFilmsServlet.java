@@ -1,6 +1,7 @@
 package com.mykh.videolib.servlets;
 
 import com.mykh.videolib.dao.FilmDao;
+import com.mykh.videolib.service.NumberFormatService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,16 +14,17 @@ import java.io.IOException;
 public class FindActorsByManyFilmsServlet extends HttpServlet {
 
     private FilmDao dao;
+    private NumberFormatService service;
 
     public FindActorsByManyFilmsServlet() {
         dao = new FilmDao();
+        service = new NumberFormatService();
     }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String filmsQuantity = request.getParameter("filmsQuantity");
-        int parsed = Integer.parseInt(filmsQuantity);
-        request.setAttribute("actorsFilms",dao.findActorsByManyFilms(parsed));
-
-
+        request.setAttribute("actorsFilms", dao.findActorsByManyFilms(service.checkAndParse(filmsQuantity)));
+        getServletContext().getRequestDispatcher("/jsp/findActorsByManyFilms.jsp").forward(request, response);
     }
 
 

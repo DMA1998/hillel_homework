@@ -5,9 +5,7 @@ import com.mykh.videolib.entities.Film;
 import com.mykh.videolib.entities.Producer;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
+import java.util.*;
 
 import static com.mykh.videolib.database.DbConnection.*;
 import static com.mykh.videolib.utils.QueryConstants.*;
@@ -34,7 +32,7 @@ public class FilmDao implements IFilmDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return result;
+        return uniqueFilms(result);
     }
 
     @Override
@@ -82,22 +80,21 @@ public class FilmDao implements IFilmDao {
     }
 
     @Override
-    public void removeFilmsByYear(int year) {
+    public int removeFilmsByYear(int year) {
         String sqlQuery = DELETE_FILM_BY_YEAR;
-        try {
-            PreparedStatement statement = getConnection().prepareStatement(sqlQuery);
+        try (PreparedStatement statement = getConnection().prepareStatement(sqlQuery)) {
             statement.setInt(1, year);
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return year;
     }
 
     private List<Film> appendActorsToFilm(List<Film> films) {
         String sqlQuery = FIND_ACTORS;
         for (Film film : films) {
-            try (
-                    PreparedStatement preparedStatement = getConnection().prepareStatement(sqlQuery)) {
+            try (PreparedStatement preparedStatement = getConnection().prepareStatement(sqlQuery)) {
                 preparedStatement.setString(1, film.getName());
                 ResultSet resultSet = preparedStatement.executeQuery();
                 List<Actor> actors = getActors(resultSet);
@@ -141,5 +138,11 @@ public class FilmDao implements IFilmDao {
         return result;
     }
 
-
+    private List<Film> uniqueFilms(List<Film> films) {
+        Set<Film> tempSet = new HashSet<>();
+        List<Film> tempList = new ArrayList<>();
+        tempSet.addAll(films);
+        tempList.addAll(tempSet);
+        return tempList;
+    }
 }

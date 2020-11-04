@@ -26,15 +26,7 @@ public class FindActorsInParticularFilmServlet extends HttpServlet {
         request.setAttribute("actors", dao.findActorsInParticularFilm(filmName));
         getServletContext().getRequestDispatcher("/jsp/findActorsInParticularFilm.jsp").forward(request, response);
 
-        PrintWriter writer = response.getWriter();
-        String result = "<html> " + " <h1> ";
-        result += "Film name : " + filmName + " </h1> ";
-        result += "</html>";
-
-        writer.println(result);
 
 
     }
-
-
 }

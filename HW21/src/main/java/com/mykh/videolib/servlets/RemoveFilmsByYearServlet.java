@@ -1,6 +1,7 @@
 package com.mykh.videolib.servlets;
 
 import com.mykh.videolib.dao.FilmDao;
+import com.mykh.videolib.service.NumberFormatService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,13 +14,18 @@ import java.io.IOException;
 public class RemoveFilmsByYearServlet extends HttpServlet {
 
     private FilmDao dao;
+    private NumberFormatService service;
+
 
     public RemoveFilmsByYearServlet() {
         dao = new FilmDao();
+        service = new NumberFormatService();
     }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    String filmYear = request.getParameter("filmYear");
-    int parsed = Integer.parseInt(filmYear);
+        String filmYear = request.getParameter("filmYear");
+        request.setAttribute("remove", dao.removeFilmsByYear(service.checkAndParse(filmYear)));
+        getServletContext().getRequestDispatcher("/jsp/removeFilmsByYear.jsp").forward(request,response);
 
 
     }

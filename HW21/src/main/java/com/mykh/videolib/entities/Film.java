@@ -1,6 +1,7 @@
 package com.mykh.videolib.entities;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Film {
 
@@ -58,6 +59,19 @@ public class Film {
 
     public void setActors(List<Actor> actors) {
         this.actors = actors;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Film film = (Film) o;
+        return name.equals(film.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 
     @Override

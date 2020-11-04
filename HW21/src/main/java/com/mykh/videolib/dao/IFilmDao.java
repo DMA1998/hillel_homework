@@ -15,7 +15,7 @@ public interface IFilmDao {
 
     List<Actor> findActorsLikeProducers();
 
-    void removeFilmsByYear(int year);
+    int removeFilmsByYear(int year);
 
 
 }

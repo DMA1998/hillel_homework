@@ -3,15 +3,5 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
                       http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
-         version="4.0" >
-
-  <servlet>
-    <servlet-name>findActorsInParticularFilmServlet</servlet-name>
-    <servlet-class>com.mykh.videolib.servlets.FindActorsByManyFilmsServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>findActorsInParticularFilmServlet</servlet-name>
-    <url-pattern>/find</url-pattern>
-  </servlet-mapping>
-
+         version="4.0">
 </web-app>

@@ -10,6 +10,6 @@
     <title>header</title>
 </head>
 <body>
-<c:import url="jsp/findActorsInParticularFilm.jsp"></c:import>
+<c:import url="jspf/header.jspf"></c:import>
 </body>
 </html>

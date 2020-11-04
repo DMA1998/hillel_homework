@@ -20,5 +20,6 @@ public class FindActorsLikeProducersServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("producers",dao.findActorsLikeProducers());
+        getServletContext().getRequestDispatcher("/jsp/findActorsLikeProducers.jsp").forward(request, response);
     }
 }

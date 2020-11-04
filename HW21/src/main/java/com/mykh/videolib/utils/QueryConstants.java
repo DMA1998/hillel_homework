@@ -46,7 +46,6 @@ public class QueryConstants {
                     " AND " +
                     " a.birthday = p.birthday ";
 
-    public static final String DELETE_FILM_BY_YEAR =
-            " DELETE FROM films f " +
-                    " WHERE f.release  > ? ";
+    public static final String DELETE_FILM_BY_YEAR = " DELETE FROM films f " +
+            " WHERE f.release >= ?; ";
 }

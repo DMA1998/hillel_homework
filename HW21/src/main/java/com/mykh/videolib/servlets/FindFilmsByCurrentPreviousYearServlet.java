@@ -21,7 +21,8 @@ public class FindFilmsByCurrentPreviousYearServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        request.setAttribute("currentPreviousYear",dao.findFilmsByCurrentAndPreviousYear());
+        request.setAttribute("films",dao.findFilmsByCurrentAndPreviousYear());
+        getServletContext().getRequestDispatcher("/jsp/findFilmsByCurrentPreviousYear.jsp").forward(request,response);
 
 
     }
