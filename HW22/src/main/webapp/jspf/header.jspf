@@ -1,0 +1,44 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Hillel</title>
+</head>
+<body>
+<div class="header">
+    <div class="inner_header" style="width: 87%" >
+        <div class="logo_container">
+            <a href="homeServlet" class="logo_container">
+            <h1><span style="font-size: 65px">HILLEL</span></h1>
+            </a>
+        </div>
+        <ul class="navigation" >
+            <a href="findActorsInParticularFilmServlet">
+                <li>
+                    Find actors<br> in particular film
+                </li>
+            </a>
+            <a href="findActorsByManyFilmsServlet" >
+                <li>
+                    Find actors by <br> many films
+                </li>
+            </a>
+            <a href="findActorsLikeProducersServlet">
+                <li>
+                    Find actors <br> like producers
+                </li>
+            </a>
+            <a href="findFilmsByCurrentPreviousYearServlet">
+                <li>
+                    Find films by current <br> and previous year
+                </li>
+            </a>
+            <a href="removeFilmsByYearServlet">
+                <li>
+                    Remove films <br> by year
+                </li>
+            </a>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
